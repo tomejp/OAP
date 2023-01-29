@@ -50,3 +50,13 @@ nav a {
   font-size: 20px;
 }
 
+#alan-partridge {
+position: absolute;
+top: 0;
+left: 0;
+width: 200px;
+height: auto;
+ z-index: -1;
+}
+
+

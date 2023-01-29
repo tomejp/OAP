@@ -9,8 +9,6 @@ facts = ["Alan Partridge is a fictional character created by Steve Coogan",
          "He has also appeared in several films, including Alan Partridge: Alpha Papa",
          "He is known for his cringe-worthy antics, his love of sports jackets, and his catchphrases",
          "He is considered one of the greatest British comedy characters of all time",
-         "Steve Coogan has won several awards for his portrayal of Alan Partridge",
-         "Alan has his own YouTube channel, which features clips from his shows",
          "He has also released an autobiography, I, Partridge: We Need to Talk About Alan"]
 
 quotes = [

@@ -5,26 +5,59 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+<img id="alan-partridge" src="static/alan-partridge.jpg" />
+
+<script>
+
+  const image = document.getElementById("alan-partridge");
+  let x = 0;
+  let y = 0;
+  let directionX = 1;
+  let directionY = 1;
+  let audio = new Audio("static/Queen is dead.mp3");
+
+
+  setInterval(function () {
+    x += directionX;
+    y += directionY;
+    audio.play();
+
+    if (x + image.offsetWidth > window.innerWidth || x < 0) {
+      directionX *= -1;
+    }
+
+    if (y + image.offsetHeight > window.innerHeight || y < 0) {
+      directionY *= -1;
+    }
+
+    image.style.left = x + "px";
+    image.style.top = y + "px";
+  }, 1);
+
+</script>
+
 <nav>
     <a href="{{ url_for('home') }}">Home</a>
     <a href="{{ url_for('contact') }}">Contact</a>
 </nav>
-    <ul>
-        {% for fact in facts %}
-        <li>{{ fact }}</li>
-        {% endfor %}
-    </ul>
-    <button onclick="generateQuote()">New Quote</button>
-    <script>
-        function generateQuote() {
-            fetch('/quote')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("quote").innerHTML = data;
-            });
-        }
 
-    </script>
-    <blockquote id="quote">{{ quote }}</blockquote>
+<ul>
+    {% for fact in facts %}
+    <li>{{ fact }}</li>
+    {% endfor %}
+</ul>
+<button onclick="generateQuote()">Random Alan Quote</button>
+<script>
+    function generateQuote() {
+        fetch('/quote')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("quote").style.display = "block";
+            document.getElementById("quote").innerHTML = data;
+        });
+    }
+
+</script>
+<blockquote id="quote" style="display: none;">{{ quote }}</blockquote>
+
 </body>
-</html>
