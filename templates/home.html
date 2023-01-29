@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alan Partridge Fansite</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to the Alan Partridge Fansite</h1>
+    <ul>
+        {% for fact in facts %}
+        <li>{{ fact }}</li>
+        {% endfor %}
+    </ul>
+    <blockquote id="quote">{{ quote }}</blockquote>
+    <button onclick="generateQuote()">New Quote</button>
+    <script>
+        function generateQuote() {
+            fetch('/quote')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("quote").innerHTML = data;
+            });
+        }
+    </script>
+</body>
+</html>
