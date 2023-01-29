@@ -42,5 +42,9 @@ def home():
 def quote():
     return jsonify(random.choice(quotes))
 
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

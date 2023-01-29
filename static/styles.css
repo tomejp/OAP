@@ -9,8 +9,14 @@ button {
   margin-right: auto;
 }
 
+blockquote {
+    text-align: center;
+}
+
 body {
-    background-color: #f5f5dc;
+    background-color: white;
+    padding:0;
+    margin:0;
 }
 
 h1 {
@@ -21,10 +27,26 @@ h1 {
 li {
     color: #000000;
     list-style-type: disc;
-    margin: 10px 0;
+    margin: 9px 0;
 }
 
 blockquote {
     font-
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #004225; /* British Racing Green */
+  margin-top: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 10px;
+  font-size: 20px;
 }
 
