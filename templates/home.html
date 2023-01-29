@@ -8,19 +8,21 @@
 <img id="alan-partridge" src="static/alan-partridge.jpg" />
 
 <script>
+  const audio = new Audio();
+  const sounds = [
+    "static/Queen is dead.mp3",
+    // Add more sound files as needed
+  ];
 
   const image = document.getElementById("alan-partridge");
   let x = 0;
   let y = 0;
   let directionX = 1;
   let directionY = 1;
-  let audio = new Audio("static/Queen is dead.mp3");
-
 
   setInterval(function () {
     x += directionX;
     y += directionY;
-    audio.play();
 
     if (x + image.offsetWidth > window.innerWidth || x < 0) {
       directionX *= -1;
@@ -32,8 +34,15 @@
 
     image.style.left = x + "px";
     image.style.top = y + "px";
+
+    // Update the volume based on the position of the image
+    const volume = 1 - Math.min(1, Math.max(0, (y + image.offsetHeight) / window.innerHeight));
+    audio.volume = volume;
   }, 1);
 
+  // Pick a random sound and play it
+  audio.src = sounds[Math.floor(Math.random() * sounds.length)];
+  audio.play();
 </script>
 
 <nav>
@@ -54,6 +63,7 @@
         .then(data => {
             document.getElementById("quote").style.display = "block";
             document.getElementById("quote").innerHTML = data;
+
         });
     }
 
