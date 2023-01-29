@@ -11,7 +11,6 @@
         <li>{{ fact }}</li>
         {% endfor %}
     </ul>
-    <blockquote id="quote">{{ quote }}</blockquote>
     <button onclick="generateQuote()">New Quote</button>
     <script>
         function generateQuote() {
@@ -21,6 +20,8 @@
                 document.getElementById("quote").innerHTML = data;
             });
         }
+
     </script>
+    <blockquote id="quote">{{ quote }}</blockquote>
 </body>
 </html>
